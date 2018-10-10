@@ -1,12 +1,12 @@
-import React from "react";
-import eventUtils from "../../util/events";
-import styles from "./search-styles";
-import { withStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined'
-import TextField from "@material-ui/core/TextField";
+import React from 'react';
+import eventUtils from '../../util/events';
+import styles from './search-styles';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import TextField from '@material-ui/core/TextField';
 
-let Search = ({ onSearch, classes }) => {
+let Search = ({ onSearch, onChange, classes }) => {
 	return (
 		<form autoComplete="off" onSubmit={event => onSearch(eventUtils.stop(event))}>
 			<div className={classes.margin}>
@@ -22,6 +22,7 @@ let Search = ({ onSearch, classes }) => {
 							type="search"
 							margin="none"
 							variant="outlined"
+							onChange={onChange}
 						/>
 					</Grid>
 				</Grid>

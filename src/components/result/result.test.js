@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import SearchControl from './search-control';
+import ResultControl from './result-control';
 import renderer from 'react-test-renderer';
 
 test('Search component renders', () => {
 	const comp = renderer.create(
 		<BrowserRouter>
-			<SearchControl />
+			<ResultControl location={{search: 'test'}} />
 		</BrowserRouter>
 	);
 	let tree = comp.toJSON();
