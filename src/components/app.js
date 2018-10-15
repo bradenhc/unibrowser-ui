@@ -14,7 +14,7 @@ class App extends React.Component {
 						path="/"
 						render={props => (
 							<React.Fragment>
-								<Logo height={300} />
+								<Logo />
 								<SearchControl {...props} />
 							</React.Fragment>
 						)}

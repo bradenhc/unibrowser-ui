@@ -3,10 +3,22 @@ const styles = theme => ({
 		width: '100%'
 	},
 	searchGrid: {
-		width: '40%'
+		width: '100%',
+		[theme.breakpoints.up('md')]: {
+			width: '40%'
+		}
+	},
+	searchIcon: {
+		display: 'none',
+		[theme.breakpoints.up('md')]: {
+			display: 'block'
+		}
 	},
 	margin: {
 		margin: theme.spacing.unit
+	},
+	form: {
+		width: '100%'
 	}
 });
 

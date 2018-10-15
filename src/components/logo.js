@@ -8,12 +8,19 @@ const styles = theme => ({
         display: 'flex',
         justifyContent: 'center',
         padding: '20px',
+    },
+    image: {
+        height: '300px',
+        width: 'auto',
+        [theme.breakpoints.down('xs')]: {
+            height: '230px'
+        }
     }
 });
 
-let Logo = ({ height, classes }) => (
+let Logo = ({ classes }) => (
 	<div className={classes.logo}>
-        <img src={logo} style={{width: 'auto', height: height + 'px'}}/>
+        <img className={classes.image} src={logo} />
 	</div>
 );
 

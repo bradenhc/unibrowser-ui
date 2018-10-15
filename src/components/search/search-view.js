@@ -8,10 +8,10 @@ import TextField from '@material-ui/core/TextField';
 
 let Search = ({ onSearch, onChange, classes }) => {
 	return (
-		<form autoComplete="off" onSubmit={event => onSearch(eventUtils.stop(event))}>
+		<form className={classes.form} autoComplete="off" onSubmit={event => onSearch(eventUtils.stop(event))}>
 			<div className={classes.margin}>
 				<Grid container spacing={8} alignItems="center" justify="center">
-					<Grid item>
+					<Grid className={classes.searchIcon} item>
 						<SearchOutlinedIcon />
 					</Grid>
 					<Grid item className={classes.searchGrid}>
