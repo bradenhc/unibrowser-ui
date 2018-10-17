@@ -1,32 +1,47 @@
 import React from 'react';
 import SearchView from './search-view';
 import { withRouter } from 'react-router-dom';
+import categories from '../../model/categories';
 
 class SearchControl extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			query: ''
+			query: '',
+			category: ''
 		};
 
 		this.onSearch = this.onSearch.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.onCategoryChange = this.onCategoryChange.bind(this);
 	}
 
 	onSearch(event) {
 		this.props.history.push({
 			pathname: '/search',
-			search: '?query=' + encodeURI(this.state.query)
+			search: '?category=' + this.state.category + '&query=' + this.state.query
 		});
 	}
 
-	onChange(event){
-		this.setState({query: event.target.value})
+	onChange(event) {
+		this.setState({ query: event.target.value });
+	}
+
+	onCategoryChange(event) {
+		this.setState({ category: event.target.value });
 	}
 
 	render() {
-		return <SearchView onSearch={this.onSearch} onChange={this.onChange} />;
+		return (
+			<SearchView
+				categories={categories}
+				category={this.state.category}
+				onSearch={this.onSearch}
+				onCategoryChange={this.onCategoryChange}
+				onChange={this.onChange}
+			/>
+		);
 	}
 }
 

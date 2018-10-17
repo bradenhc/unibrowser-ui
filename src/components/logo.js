@@ -7,13 +7,20 @@ const styles = theme => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        padding: '20px',
+        padding: '3px'
+    },
+    image: {
+        height: '300px',
+        width: 'auto',
+        [theme.breakpoints.down('xs')]: {
+            height: '230px'
+        }
     }
 });
 
-let Logo = ({ height, classes }) => (
+let Logo = ({ classes, height }) => (
 	<div className={classes.logo}>
-        <img src={logo} style={{width: 'auto', height: height + 'px'}}/>
+        <img className={classes.image} src={logo} style={height ? {height: height + 'px'} : {}} />
 	</div>
 );
 
