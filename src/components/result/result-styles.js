@@ -54,7 +54,21 @@ const styles = theme => ({
 		//[theme.breakpoints.up('md')]: {
 		//	width: 200
 		//}
-	}
+	},
+	result: {
+		padding: '10px',
+		margin: '3px',
+		[theme.breakpoints.up('md')]: {
+			maxWidth: '60%',
+			marginLeft: '100px'
+		}
+	},
+	resultHeader: {
+		fontSize: '18px',
+		fontWeight: 'bold'
+	},
+	resultContent: {},
+	resultUrl: {}
 });
 
 export default styles;

@@ -51,9 +51,19 @@ class ResultView extends React.Component {
 							</div>
 						</form>
 						<div className={classes.grow} />
-						{!results ? '' : results.map(result => <div>Result</div>)}
 					</Toolbar>
 				</AppBar>
+				{!results
+					? ''
+					: results.map(result => (
+							<div className={classes.result} key={result.type}>
+								<Typography className={classes.resultHeader}>{result.heading}</Typography>
+								<Typography className={classes.resultUrl}>
+									<a href={result.url}>{result.url}</a>
+								</Typography>
+								<Typography className={classes.resultContents}>{result.content}</Typography>
+							</div>
+					  ))}
 			</div>
 		);
 	}

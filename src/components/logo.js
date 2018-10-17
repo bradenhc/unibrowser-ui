@@ -7,7 +7,7 @@ const styles = theme => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        padding: '20px',
+        padding: '3px'
     },
     image: {
         height: '300px',
@@ -18,9 +18,9 @@ const styles = theme => ({
     }
 });
 
-let Logo = ({ classes }) => (
+let Logo = ({ classes, height }) => (
 	<div className={classes.logo}>
-        <img className={classes.image} src={logo} />
+        <img className={classes.image} src={logo} style={height ? {height: height + 'px'} : {}} />
 	</div>
 );
 
