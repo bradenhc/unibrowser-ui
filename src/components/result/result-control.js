@@ -9,18 +9,36 @@ class ResultControl extends React.Component {
 		let search = querystring.parse(this.props.location.search);
 		this.state = {
 			query: search.query,
-			category: search.cateogry
-		}
+			category: search.category
+		};
 
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);
+		this.onResultSelect = this.onResultSelect.bind(this);
 	}
 
 	onSearchSubmit(query) {
-		this.props.history.push({ pathname: '/search', search: '?query=' + encodeURI(query) });
+		this.props.history.push({
+			pathname: '/search',
+			search: '?category=' + this.state.category + '&query=' + encodeURI(query)
+		});
+	}
+
+	onResultSelect(id) {
+		this.props.history.push({
+			pathname: '/search/results',
+			search: '?id=' + id
+		})
 	}
 
 	render() {
-		return <ResultView query={this.state.query} onSearch={this.onSearchSubmit} results={mock} />;
+		return (
+			<ResultView
+				query={this.state.query}
+				onSearch={this.onSearchSubmit}
+				onResultSelect={this.onResultSelect}
+				results={mock}
+			/>
+		);
 	}
 }
 

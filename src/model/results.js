@@ -1,5 +1,6 @@
-function createMock(type, heading, content, url, rank, tags) {
+function createMock(id, type, heading, content, url, rank, tags) {
 	return {
+		id,
 		type,
 		heading,
 		content,
@@ -19,7 +20,7 @@ const lorem =
 let mocks = [];
 
 for(var i = 0; i < 10; i++){
-    mocks.push(createMock(Math.random() * 100, 'Test', lorem, 'http://oregonstate.edu', 1, []));
+	mocks.push(createMock(i, i, 'Test', lorem, 'http://oregonstate.edu', 1, []));
 }
 
 export default mocks;
