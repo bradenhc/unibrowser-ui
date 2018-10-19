@@ -7,6 +7,34 @@ import ResultControl from './result/result-control';
 import theme from './theme';
 
 class App extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			results: ''
+		};
+
+		this.callApi = this.callApi.bind(this);
+	}
+
+	async componentDidMount() {
+		try {
+			let res = await this.callApi();
+			this.setState({ response: res.express });
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	async callApi() {
+		const response = await fetch('/home');
+		const body = await response.json();
+
+		if (response.status !== 200) throw Error(body.message);
+
+		return body;
+	}
+
 	render() {
 		return (
 			<MuiThemeProvider theme={theme}>
@@ -22,7 +50,7 @@ class App extends React.Component {
 								</React.Fragment>
 							)}
 						/>
-						<Route path="/search" component={ResultControl} />
+						<Route path="/search/:category" render={props => <ResultControl {...props} />} />
 					</Switch>
 				</Router>
 			</MuiThemeProvider>

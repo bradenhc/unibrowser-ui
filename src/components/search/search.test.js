@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 import SearchControl from './search-control';
 import renderer from 'react-test-renderer';
 
 test('Search component renders', () => {
 	const comp = renderer.create(
-		<BrowserRouter>
+		<MemoryRouter initialEntries={['/']}>
 			<SearchControl />
-		</BrowserRouter>
+		</MemoryRouter>
 	);
 	let tree = comp.toJSON();
 	expect(tree).toMatchSnapshot();

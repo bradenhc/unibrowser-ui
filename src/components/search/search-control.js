@@ -9,7 +9,7 @@ class SearchControl extends React.Component {
 
 		this.state = {
 			query: '',
-			category: ''
+			category: 'all'
 		};
 
 		this.onSearch = this.onSearch.bind(this);
@@ -19,8 +19,8 @@ class SearchControl extends React.Component {
 
 	onSearch(event) {
 		this.props.history.push({
-			pathname: '/search',
-			search: '?category=' + this.state.category + '&query=' + this.state.query
+			pathname: '/search/' + this.state.category,
+			search: '?query=' + this.state.query
 		});
 	}
 

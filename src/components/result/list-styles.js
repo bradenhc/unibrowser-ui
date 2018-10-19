@@ -6,7 +6,8 @@ const styles = theme => ({
 			maxWidth: '60%',
 			marginLeft: '100px'
 		},
-		cursor: 'pointer'
+		cursor: 'pointer',
+		overflow: 'inherit'
 	},
 	resultHeader: {
 		fontSize: '18px',
