@@ -9,11 +9,22 @@ class ResultControl extends React.Component {
 		let search = querystring.parse(this.props.location.search);
 		this.state = {
 			query: search.query,
-			category: search.category
+			category: search.category,
+			results: []
 		};
 
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);
 		this.onResultSelect = this.onResultSelect.bind(this);
+		this.retrieveSearchResults = this.retrieveSearchResults.bind(this);
+	}
+
+	async componentDidMount(){
+		let results = await this.retrieveSearchResults(this.state.query);
+		this.setState({results: results});
+	}
+
+	async retrieveSearchResults(query){
+		return mock;
 	}
 
 	onSearchSubmit(query) {
@@ -36,7 +47,7 @@ class ResultControl extends React.Component {
 				query={this.state.query}
 				onSearch={this.onSearchSubmit}
 				onResultSelect={this.onResultSelect}
-				results={mock}
+				results={this.state.results}
 			/>
 		);
 	}
