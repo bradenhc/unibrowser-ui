@@ -28,7 +28,6 @@ class App extends React.Component {
 
 	async callApi() {
 		const response = await fetch('/home');
-		console.log(response);
 		const body = await response.json();
 
 		if (response.status !== 200) throw Error(body.message);
