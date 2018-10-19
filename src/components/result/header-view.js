@@ -9,7 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-let HeaderView = ({ classes, searchQuery, onSearchQueryChange, onSearchSubmit }) => (
+let HeaderView = ({ classes, searchQuery, onSearchQueryChange, onSearchSubmit, onSearchBarFocus }) => (
 	<AppBar position="static">
 		<Toolbar>
 			<Link to="/" className={classes.link}>
@@ -27,6 +27,8 @@ let HeaderView = ({ classes, searchQuery, onSearchQueryChange, onSearchSubmit })
 						classes={{ root: classes.inputRoot, input: classes.inputInput }}
 						value={searchQuery}
 						onChange={onSearchQueryChange}
+						onFocus={onSearchBarFocus}
+						spellCheck={false}
 					/>
 				</div>
 			</form>

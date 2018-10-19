@@ -19,9 +19,9 @@ let Search = ({ classes, category, categories, onSearch, onChange, onCategoryCha
 						<SearchOutlinedIcon />
 					</Grid>
 					<Grid item>
-						<FormControl>
+						<FormControl required>
 							<InputLabel className={classes.label} htmlFor="searchCategory">Category</InputLabel>
-							<Select className={classes.select}
+							<Select required className={classes.select}
 								value={category}
 								onChange={onCategoryChange}
 								inputProps={{

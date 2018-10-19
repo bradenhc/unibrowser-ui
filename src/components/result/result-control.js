@@ -9,7 +9,7 @@ class ResultControl extends React.Component {
 		let search = querystring.parse(this.props.location.search);
 		this.state = {
 			query: search.query,
-			category: search.category,
+			category: this.props.match.params.category,
 			results: []
 		};
 
@@ -29,15 +29,14 @@ class ResultControl extends React.Component {
 
 	onSearchSubmit(query) {
 		this.props.history.push({
-			pathname: '/search',
-			search: '?category=' + this.state.category + '&query=' + encodeURI(query)
+			pathname: `/search/${this.props.match.params.category}`,
+			search: '?query=' + encodeURI(query)
 		});
 	}
 
 	onResultSelect(id) {
 		this.props.history.push({
-			pathname: '/search/results',
-			search: '?id=' + id
+			pathname: `/search/${this.props.match.params.category}/results/${id}`
 		})
 	}
 
@@ -45,6 +44,7 @@ class ResultControl extends React.Component {
 		return (
 			<ResultView
 				query={this.state.query}
+				category={this.state.category}
 				onSearch={this.onSearchSubmit}
 				onResultSelect={this.onResultSelect}
 				results={this.state.results}

@@ -51,7 +51,7 @@ class App extends React.Component {
 								</React.Fragment>
 							)}
 						/>
-						<Route path="/search" component={ResultControl} />
+						<Route path="/search/:category" render={props => <ResultControl {...props} />} />
 					</Switch>
 				</Router>
 			</MuiThemeProvider>
