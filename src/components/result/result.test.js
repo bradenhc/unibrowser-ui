@@ -1,9 +1,12 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router';
 import App from '../app';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import ListView from './list-view';
+import ProfessorView from './details/professor-view';
+import FaqView from './details/faq-view';
 
-test('Result FAQ component renders', () => {
+beforeEach(() => {
 	global.fetch = jest.fn().mockImplementation(() => {
 		var p = new Promise((resolve, reject) => {
 			resolve({
@@ -17,12 +20,43 @@ test('Result FAQ component renders', () => {
 
 		return p;
 	});
+});
 
-	const comp = renderer.create(
+test('Result FAQ component renders', () => {
+	const wrapper = mount(
 		<MemoryRouter initialEntries={['/search/faq?query=helloworld']}>
 			<App />
 		</MemoryRouter>
 	);
-	let tree = comp.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect(wrapper.find(ListView)).toHaveLength(1);
+});
+
+test('Result Professor component renders', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/search/professors?query=helloworld']}>
+			<App />
+		</MemoryRouter>
+	);
+
+	expect(wrapper.find(ListView)).toHaveLength(1);
+});
+
+test('Professor details view renders', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/search/professors/results/0']}>
+			<App />
+		</MemoryRouter>
+	);
+
+	expect(wrapper.find(ProfessorView)).toHaveLength(1);
+});
+
+test('FAQ details view renders', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/search/faq/results/0']}>
+			<App />
+		</MemoryRouter>
+	);
+
+	expect(wrapper.find(FaqView)).toHaveLength(1);
 });
