@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import { withStyles } from '@material-ui/core/styles';
+import { Switch, Route } from 'react-router-dom';
 import styles from './result-styles';
-import SearchIcon from '@material-ui/icons/Search';
 import eventsUtil from '../../util/events';
+import HeaderView from './header-view';
+import ListView from './list-view';
+import DetailsView from './details-view';
 
 class ResultView extends React.Component {
 	constructor(props) {
@@ -15,55 +14,42 @@ class ResultView extends React.Component {
 
 		this.state = { search: this.props.query };
 
-		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.onSearchQueryChange = this.onSearchQueryChange.bind(this);
+		this.onSearchSubmit = this.onSearchSubmit.bind(this);
+		this.onResultSelect = this.onResultSelect.bind(this);
 	}
 
-	onChange(event) {
+	onSearchQueryChange(event) {
 		this.setState({ search: event.target.value });
 	}
 
-	onSubmit(event) {
+	onSearchSubmit(event) {
 		eventsUtil.stop(event);
 		this.props.onSearch(this.state.search);
 	}
 
+	onResultSelect(event, id) {
+		eventsUtil.stop(event);
+		this.props.onResultSelect(id);
+	}
+
 	render() {
-		const { classes, results, onSearch } = this.props;
+		const { classes, results } = this.props;
 		return (
 			<div className={classes.root}>
-				<AppBar position="static">
-					<Toolbar>
-						<Typography className={classes.title} variant="h6" color="inherit" noWrap>
-							Unibrowser
-						</Typography>
-						<form className={classes.form} onSubmit={this.onSubmit}>
-							<div className={classes.search}>
-								<div className={classes.searchIcon}>
-									<SearchIcon />
-								</div>
-								<InputBase
-									placeholder="Search Unibrowser..."
-									classes={{ root: classes.inputRoot, input: classes.inputInput }}
-									value={this.state.search}
-									onChange={this.onChange}
-								/>
-							</div>
-						</form>
-						<div className={classes.grow} />
-					</Toolbar>
-				</AppBar>
-				{!results
-					? ''
-					: results.map(result => (
-							<div className={classes.result} key={result.type}>
-								<Typography className={classes.resultHeader}>{result.heading}</Typography>
-								<Typography className={classes.resultUrl}>
-									<a href={result.url}>{result.url}</a>
-								</Typography>
-								<Typography className={classes.resultContents}>{result.content}</Typography>
-							</div>
-					  ))}
+				<HeaderView
+					onSearchQueryChange={this.onSearchQueryChange}
+					searchQuery={this.state.query}
+					onSearchSubmit={this.onSearchSubmit}
+				/>
+				<Switch>
+					<Route
+						exact
+						path="/search"
+						render={props => <ListView {...props} results={results} onResultSelect={this.onResultSelect} />}
+					/>
+					<Route exact path="/search/results" render={props => <DetailsView {...props} />} />
+				</Switch>
 			</div>
 		);
 	}
