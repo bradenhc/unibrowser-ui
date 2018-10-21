@@ -85,7 +85,7 @@ class ResultView extends React.Component {
 							switch (this.props.category) {
 								case 'professors':
 									return <ProfessorView {...props} />;
-								case 'faq':
+								case 'faqs':
 									return <FaqView {...props} />;
 								default:
 									return <div>Empty</div>;
