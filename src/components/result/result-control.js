@@ -19,12 +19,19 @@ class ResultControl extends React.Component {
 	}
 
 	async componentDidMount(){
-		let results = await this.retrieveSearchResults(this.state.query);
+		let results = await this.retrieveSearchResults(this.state.category, this.state.query);
 		this.setState({results: results});
 	}
 
-	async retrieveSearchResults(query){
-		return mock;
+	async retrieveSearchResults(category, query){
+		try {
+			let resp = await fetch(`http://localhost:8081/api/${category}?query=${query}`);
+			let data = await resp.json();
+			return data;
+		} catch(e) {
+			console.log(e);
+			return mock;
+		}
 	}
 
 	onSearchSubmit(query) {

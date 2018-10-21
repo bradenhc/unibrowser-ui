@@ -20,8 +20,12 @@ let Search = ({ classes, category, categories, onSearch, onChange, onCategoryCha
 					</Grid>
 					<Grid item>
 						<FormControl required>
-							<InputLabel className={classes.label} htmlFor="searchCategory">Category</InputLabel>
-							<Select required className={classes.select}
+							<InputLabel className={classes.label} htmlFor="searchCategory">
+								Category
+							</InputLabel>
+							<Select
+								required
+								className={classes.select}
 								value={category}
 								onChange={onCategoryChange}
 								inputProps={{
@@ -29,10 +33,13 @@ let Search = ({ classes, category, categories, onSearch, onChange, onCategoryCha
 									id: 'searchCategory'
 								}}
 							>
-								<MenuItem value="">
-									<em>None</em>
-								</MenuItem>
-								{!categories ? '' : categories.map(c => <MenuItem key={c.value} value={c.value}>{c.name}</MenuItem>)}
+								{!categories
+									? ''
+									: categories.map(c => (
+											<MenuItem key={c.value} value={c.value}>
+												{c.name}
+											</MenuItem>
+									  ))}
 							</Select>
 						</FormControl>
 					</Grid>

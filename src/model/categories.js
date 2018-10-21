@@ -5,7 +5,7 @@ const categories = [
 	},
 	{
 		name: 'FAQ',
-		value: 'faq'
+		value: 'faqs'
 	},
 	{
 		name: 'Professors',
