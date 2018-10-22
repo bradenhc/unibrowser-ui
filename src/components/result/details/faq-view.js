@@ -5,10 +5,11 @@ import styles from './professor-styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-let FaqView = ({ classes }) => (
+let FaqView = ({ classes, result }) => (
 	<div className={classes.root}>
 		<Paper className={classes.paper} elevation={1}>
-			<Typography>Hello, FAQ!</Typography>
+			<Typography variant='h2'>{result.heading}</Typography>
+			<Typography>{result.content}</Typography>
 		</Paper>
 	</div>
 );

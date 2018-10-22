@@ -63,7 +63,7 @@ class ResultView extends React.Component {
 	}
 
 	render() {
-		const { classes, results } = this.props;
+		const { classes, results, selectedResult } = this.props;
 		return (
 			<div className={classes.root}>
 				<HeaderView
@@ -84,9 +84,9 @@ class ResultView extends React.Component {
 						render={props => {
 							switch (this.props.category) {
 								case 'professors':
-									return <ProfessorView {...props} />;
+									return <ProfessorView result={selectedResult} {...props} />;
 								case 'faqs':
-									return <FaqView {...props} />;
+									return <FaqView result={selectedResult} {...props} />;
 								default:
 									return <div>Empty</div>;
 							}
