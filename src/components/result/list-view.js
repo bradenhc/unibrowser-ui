@@ -11,7 +11,7 @@ let ListView = ({classes, results, onResultSelect}) => (
             ? ''
             : results.map(result => (
                 <Card
-                    className={classes.result}
+                    className={{...classes.result, testForCard: ''}}
                     key={result.type}
                     id={result.id}
                     onMouseUp={e => onResultSelect(e, result)}
