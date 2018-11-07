@@ -18,4 +18,7 @@ pipeline {
       }
     }
   }
+  environment {
+    HOME = '.'
+  }
 }
