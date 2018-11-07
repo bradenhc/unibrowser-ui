@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultView from './result-view';
 import querystring from 'query-string';
-import mock from '../../model/results';
+import mock, {sportsMock, seminarMock} from '../../model/results';
 
 class ResultControl extends React.Component {
 	constructor(props) {
@@ -31,6 +31,9 @@ class ResultControl extends React.Component {
 			return data;
 		} catch(e) {
 			console.log(e);
+			console.log(sportsMock);
+			if(category === "sports") return sportsMock;
+			if(category === "seminars") return seminarMock;
 			return mock;
 		}
 	}
