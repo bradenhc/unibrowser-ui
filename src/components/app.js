@@ -5,6 +5,19 @@ import SearchControl from './search/search-control';
 import Logo from './logo';
 import ResultControl from './result/result-control';
 import theme from './theme';
+import styled from 'styled-components';
+
+const StyledQuickLinks = styled.div`
+	display: flex;
+	position: relative;
+	left: 50%;
+`
+
+const QuickLinks = ()=>(
+	<StyledQuickLinks>
+		<a href="/search/freefood">free food</a>
+	</StyledQuickLinks>
+)
 
 class App extends React.Component {
 	constructor(props) {
@@ -47,6 +60,7 @@ class App extends React.Component {
 								<React.Fragment>
 									<Logo />
 									<SearchControl {...props} />
+									<QuickLinks />
 								</React.Fragment>
 							)}
 						/>

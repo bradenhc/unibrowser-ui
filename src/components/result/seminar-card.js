@@ -47,11 +47,18 @@ const StyledInfo = styled.div`
 
     .date-time {
         margin-top: auto;
+        i {
+            margin-right: 5px;
+        }
     }
 
     .location {
         margin-top: auto;
         color: #d74009;
+        cursor: pointer;
+        i {
+            margin-right: 5px;
+        }
     }
 `
 
@@ -61,8 +68,12 @@ const EventImage = ({image}) => (
     </StyledEventImage>
 )
 
-const onTitleClick = (link) =>{
+const onTitleClick = (link) => {
     window.open(link, "_blank");
+}
+
+const onLocationClick = (lat, lng) => {
+    window.open(`https://www.google.com/maps/?q=${lat},${lng}`, "blank");
 }
 
 const Info = ({result}) => (
@@ -75,10 +86,10 @@ const Info = ({result}) => (
         </div>
         <div style={{marginTop: 'auto'}}>
             <div className="date-time">
-                {result && result.date ? result.date : ""}
+                <i className="fas fa-clock"></i><span>{result && result.date ? result.date : "--"}</span>
             </div>
-            <div className="location">
-                <span>{result && result.address ? result.address.split(',').slice(0,2).join(',') : ""}</span>
+            <div className="location" onClick={()=>onLocationClick(result.lat, result.long)}>
+                <i className="fa fa-map-marker"></i><span>{result && result.address ? result.address.split(',').slice(0,2).join(',') : "--"}</span>
             </div>
         </div>
     </StyledInfo>
