@@ -6,7 +6,7 @@ pipeline {
     }
   }
   environment {
-    HOME = '.',
+    HOME = '.'
     UI_PROD_NAME = 'unibrowser-ui'
     UI_IMAGE = 'unibrowser/unibrowser-ui'
   }
