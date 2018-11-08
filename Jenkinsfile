@@ -3,7 +3,6 @@ pipeline {
     dockerfile {
       filename 'Dockerfile.jenkinsagent'
       args '-v /var/run/docker.sock:/var/run/docker.sock'
-      label 'node-did-agent'
     }
   }
   environment {
