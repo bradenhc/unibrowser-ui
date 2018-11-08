@@ -1,20 +1,19 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:8.12.0-alpine'
-    }
-
-  }
+  agent none
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
-        sh 'npm run build'
+        sh './build.sh'
       }
     }
     stage('Test') {
       steps {
         sh './run-tests.sh'
+      }
+    }
+    stage('Deploy - Stage') {
+      steps {
+        sh 'docker build . -t unibrowser/unibrowser-ui'
       }
     }
   }
