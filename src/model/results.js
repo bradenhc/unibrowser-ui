@@ -92,6 +92,52 @@ let sportsMock = {
 		"desc": "A short workshop to learn how to simplify the class registration process",
 		"lat": "44.568231",
 		"long": "-123.280393",
+		"address" : "Memorial Union, 2501 SW Jefferson Way, Corvallis, OR 97331",
+		"link": "https://events.oregonstate.edu/event/class_registration_workshop",
+		"image": "https://d3e1o4bcbhmj8g.cloudfront.net/photos/751040/huge/0bf45d9003a2a7099e592c53e733ca084f4039e8.jpg",
+		"category": "Conference or Workshop"
+	  },
+	  {
+		"title": "Nov 6, 2018: Class Registration Workshop at Wilkinson Hall/ Gilfillan Auditorium",
+		"date": "Tue, 06 Nov 2018 16:00:00 -0800",
+		"desc": "A short workshop to learn how to simplify the class registration process",
+		"lat": "44.568231",
+		"long": "-123.280393",
+		"address" : "Memorial Union, 2501 SW Jefferson Way, Corvallis, OR 97331",
+		"link": "https://events.oregonstate.edu/event/class_registration_workshop",
+		"image": "https://d3e1o4bcbhmj8g.cloudfront.net/photos/751040/huge/0bf45d9003a2a7099e592c53e733ca084f4039e8.jpg",
+		"category": "Conference or Workshop"
+	  },
+	  {
+		"title": "Nov 6, 2018: Class Registration Workshop at Wilkinson Hall/ Gilfillan Auditorium",
+		"date": "Tue, 06 Nov 2018 16:00:00 -0800",
+		"desc": "A short workshop to learn how to simplify the class registration process",
+		"address" : "Memorial Union, 2501 SW Jefferson Way, Corvallis, OR 97331",
+		"lat": "44.568231",
+		"long": "-123.280393",
+
+		"link": "https://events.oregonstate.edu/event/class_registration_workshop",
+		"image": "https://d3e1o4bcbhmj8g.cloudfront.net/photos/751040/huge/0bf45d9003a2a7099e592c53e733ca084f4039e8.jpg",
+		"category": "Conference or Workshop"
+	  },
+	  {
+		"title": "Nov 6, 2018: Class Registration Workshop at Wilkinson Hall/ Gilfillan Auditorium",
+		"date": "Tue, 06 Nov 2018 16:00:00 -0800",
+		"desc": "A short workshop to learn how to simplify the class registration process",
+		"lat": "44.568231",
+		"long": "-123.280393",
+		"address" : "Memorial Union, 2501 SW Jefferson Way, Corvallis, OR 97331",
+		"link": "https://events.oregonstate.edu/event/class_registration_workshop",
+		"image": "https://d3e1o4bcbhmj8g.cloudfront.net/photos/751040/huge/0bf45d9003a2a7099e592c53e733ca084f4039e8.jpg",
+		"category": "Conference or Workshop"
+	  },
+	  {
+		"title": "Nov 6, 2018: Class Registration Workshop at Wilkinson Hall/ Gilfillan Auditorium",
+		"date": "Tue, 06 Nov 2018 16:00:00 -0800",
+		"desc": "A short workshop to learn how to simplify the class registration process",
+		"address" : "Memorial Union, 2501 SW Jefferson Way, Corvallis, OR 97331",
+		"lat": "44.568231",
+		"long": "-123.280393",
 		"link": "https://events.oregonstate.edu/event/class_registration_workshop",
 		"image": "https://d3e1o4bcbhmj8g.cloudfront.net/photos/751040/huge/0bf45d9003a2a7099e592c53e733ca084f4039e8.jpg",
 		"category": "Conference or Workshop"

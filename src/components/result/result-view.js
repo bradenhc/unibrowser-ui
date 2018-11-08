@@ -8,6 +8,7 @@ import HeaderView from './header-view';
 import ListView from './list-view';
 import ProfessorView from './details/professor-view';
 import FaqView from './details/faq-view';
+import SeminarView from './details/seminar-view';
 import SportsView from './details/sports-view';
 //import SeminarView from './details/sports-view'; // change to actual seminar view
 
@@ -84,8 +85,8 @@ class ResultView extends React.Component {
 								switch(category){
 									case "sports":
 										return <SportsView {...props} results={results} onResultSelect={this.onResultSelect} />
-									// case "seminars":
-									// 	return <SeminarView {...props} results={results} onResultSelect={this.onResultSelect} />
+									case "seminars":
+									 	return <SeminarView {...props} results={results} onResultSelect={this.onResultSelect} />
 									default:
 										return <ListView {...props} results={results} onResultSelect={this.onResultSelect} />
 								}

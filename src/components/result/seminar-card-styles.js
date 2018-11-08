@@ -1,16 +1,26 @@
+import { relative } from "path";
+
 const styles = theme => ({
 	root: {
-		flexGrow: 1,
-		display: 'flex'
+		display: 'flex',
+		flexDirection: 'column',
+		minHeight: '300px',
+		width: '48%',
+		minWidth: '550px',
+		[theme.breakpoints.down('md')]: {
+			width: '90%',
+			alignSelf: 'center',
+		}
 	},
 	paper: {
+		display: 'flex',
+		position: 'relative',
+		flexDirection: "row",
 		margin: '10px',
-		padding: '10px',
-		width: '100%',
-		[theme.breakpoints.up('md')]: {
-			width: '900px',
-			marginLeft: '100px'
-		}
+		height: '260px',
+		maxHeight: '300px',
+		minWidth: '350px',
+		fontFamily: 'sans-serif',
 	}
 });
 

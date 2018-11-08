@@ -2,29 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles} from '@material-ui/core/styles';
 import styles from './list-styles';
+import SeminarCard from './seminar-card';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
+
+const StyledSeminarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    @media (min-width: 700px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @media (max-width: 1280px) {
+        justify-content: center;
+    }
+`
 
 let SeminarListView = ({classes, results, onResultSelect}) => (
-    <React.Fragment>
-        {results.map(result => (
-                <Card
-                    className={classes.result}
-                    key={result.type}
-                    id={result.id}
-                    onMouseUp={e => onResultSelect(e, result)}
-                >
-                    <Typography className={classes.resultHeader}>{result.heading}</Typography>
-                    <Typography className={classes.resultUrl}>
-                        <a href={result.url}>{result.url}</a>
-                    </Typography>
-                    <Typography className={classes.resultContent}>
-                        {result.content.substring(0, 200)}
-                        ...
-								</Typography>
-                </Card>
-        ))}
-    </React.Fragment>
+    <StyledSeminarContainer>
+        {
+            results && results.events && results.events.length?
+            results.events.map((r, i)=>{
+                return (<SeminarCard result={r} key={i}>
+                </SeminarCard>)
+            }):
+            <div></div>
+        }
+    </StyledSeminarContainer>
 );
 
 SeminarListView.propTypes = {
