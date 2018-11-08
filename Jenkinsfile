@@ -30,7 +30,7 @@ pipeline {
       steps {
         sh 'docker build . -t $UI_IMAGE'
         sh 'docker rm -f $UI_PROD_NAME || true'
-        sh 'docker run -d --name $UI_PROD_NAME -p 80:80 $UI_IMAGE'
+        sh 'docker run -d --name $UI_PROD_NAME -p 80:80 --restart always $UI_IMAGE'
       }
     }
   }
