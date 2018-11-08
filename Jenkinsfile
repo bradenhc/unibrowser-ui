@@ -1,15 +1,17 @@
 pipeline {
   agent {
-    docker {
-      image 'node:8.12.0-alpine'
+    dockerfile {
+      filename 'Dockerfile.jenkinsagent'
+      args '-v /var/run/docker.sock:/var/run/docker.sock -u node'
     }
-
+  }
+  environment {
+    HOME = '.'
   }
   stages {
-    stage('Build') {
+    stage('Install Dependencies') {
       steps {
         sh 'npm install'
-        sh 'npm run build'
       }
     }
     stage('Test') {
@@ -17,8 +19,15 @@ pipeline {
         sh 'npm test'
       }
     }
-  }
-  environment {
-    HOME = '.'
+    stage('Build') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'docker build . -t unibrowser/unibrowser-ui'
+      }
+    }
   }
 }
