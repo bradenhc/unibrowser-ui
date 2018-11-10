@@ -8,6 +8,10 @@ import HeaderView from './header-view';
 import ListView from './list-view';
 import ProfessorView from './details/professor-view';
 import FaqView from './details/faq-view';
+import SeminarView from './details/seminar-view';
+import SportsView from './details/sports-view';
+import FreeFoodView from './details/free-food-view';
+//import SeminarView from './details/sports-view'; // change to actual seminar view
 
 /**
  * Represents the main view for listing search results and their associated details after a user has entered a search
@@ -76,7 +80,21 @@ class ResultView extends React.Component {
 					<Route
 						exact
 						path="/search/:category"
-						render={props => <ListView {...props} results={results} onResultSelect={this.onResultSelect} />}
+						render = {
+							props => {
+								let category = props.match.params.category || "";
+								switch(category){
+									case "sports":
+										return <SportsView {...props} results={results} onResultSelect={this.onResultSelect} />
+									case "seminars":
+									 	return <SeminarView {...props} results={results} onResultSelect={this.onResultSelect} />
+									case "freefood":
+										return <FreeFoodView {...props} results={results} onResultSelect={this.onResultSelect} />
+									default:
+										return <ListView {...props} results={results} onResultSelect={this.onResultSelect} />
+								}
+							}
+						}
 					/>
 					<Route
 						exact
@@ -87,6 +105,10 @@ class ResultView extends React.Component {
 									return <ProfessorView result={selectedResult} {...props} />;
 								case 'faqs':
 									return <FaqView result={selectedResult} {...props} />;
+								case 'sports':
+									return <div></div>;
+								case 'seminars':
+									return <div></div>;
 								default:
 									return <div>Empty</div>;
 							}
