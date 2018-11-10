@@ -1,7 +1,7 @@
 import React from 'react';
 import ResultView from './result-view';
 import querystring from 'query-string';
-import mock from '../../model/results';
+import mock, {sportsMock, seminarMock, freeFoodMock} from '../../model/results';
 
 class ResultControl extends React.Component {
 	constructor(props) {
@@ -10,7 +10,8 @@ class ResultControl extends React.Component {
 		this.state = {
 			query: search.query,
 			category: this.props.match.params.category,
-			results: []
+			results: [],
+			selectedResult: null
 		};
 
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);
@@ -19,12 +20,23 @@ class ResultControl extends React.Component {
 	}
 
 	async componentDidMount(){
-		let results = await this.retrieveSearchResults(this.state.query);
+		let results = await this.retrieveSearchResults(this.state.category, this.state.query);
 		this.setState({results: results});
 	}
 
-	async retrieveSearchResults(query){
-		return mock;
+	async retrieveSearchResults(category, query){
+		try {
+			let resp = await fetch(`http://localhost:8081/api/${category}?query=${query}`);
+			let data = await resp.json();
+			return data;
+		} catch(e) {
+			console.log(e);
+			console.log(sportsMock);
+			if(category === "sports") return sportsMock;
+			if(category === "seminars") return seminarMock;
+			if(category === "freefood") return freeFoodMock;
+			return mock;
+		}
 	}
 
 	onSearchSubmit(query) {
@@ -34,9 +46,10 @@ class ResultControl extends React.Component {
 		});
 	}
 
-	onResultSelect(id) {
+	onResultSelect(result) {
+		this.setState({selectedResult: result});
 		this.props.history.push({
-			pathname: `/search/${this.props.match.params.category}/results/${id}`
+			pathname: `/search/${this.props.match.params.category}/results/${result.id}`
 		})
 	}
 
@@ -48,6 +61,7 @@ class ResultControl extends React.Component {
 				onSearch={this.onSearchSubmit}
 				onResultSelect={this.onResultSelect}
 				results={this.state.results}
+				selectedResult={this.state.selectedResult}
 			/>
 		);
 	}

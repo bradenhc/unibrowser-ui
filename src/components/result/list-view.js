@@ -14,7 +14,7 @@ let ListView = ({classes, results, onResultSelect}) => (
                     className={classes.result}
                     key={result.type}
                     id={result.id}
-                    onMouseUp={e => onResultSelect(e, result.id)}
+                    onMouseUp={e => onResultSelect(e, result)}
                 >
                     <Typography className={classes.resultHeader}>{result.heading}</Typography>
                     <Typography className={classes.resultUrl}>

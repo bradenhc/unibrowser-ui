@@ -5,11 +5,19 @@ const categories = [
 	},
 	{
 		name: 'FAQ',
-		value: 'faq'
+		value: 'faqs'
 	},
 	{
 		name: 'Professors',
 		value: 'professors'
+	},
+	{
+		name: 'Sports',
+		value: 'sports'
+	},
+	{
+		name: 'Seminars',
+		value: 'seminars'
 	}
 ];
 
