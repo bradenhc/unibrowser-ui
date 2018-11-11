@@ -6,6 +6,7 @@ import Logo from './logo';
 import ResultControl from './result/result-control';
 import theme from './theme';
 import styled from 'styled-components';
+import MapContainer from "./cts/map-container";
 
 const StyledQuickLinks = styled.div`
 	display: flex;
@@ -64,6 +65,7 @@ class App extends React.Component {
 								</React.Fragment>
 							)}
 						/>
+                        <Route path="/cts" render={props => <MapContainer {...props} />} />
 						<Route path="/search/:category" render={props => <ResultControl {...props} />} />
 					</Switch>
 				</Router>
