@@ -11,6 +11,7 @@ import FaqView from './details/faq-view';
 import SeminarView from './details/seminar-view';
 import SportsView from './details/sports-view';
 import FreeFoodView from './details/free-food-view';
+import EventsView from './details/events-view'
 //import SeminarView from './details/sports-view'; // change to actual seminar view
 
 /**
@@ -90,6 +91,8 @@ class ResultView extends React.Component {
 									 	return <SeminarView {...props} results={results} onResultSelect={this.onResultSelect} />
 									case "freefood":
 										return <FreeFoodView {...props} results={results} onResultSelect={this.onResultSelect} />
+									case "events":
+										return <EventsView {...props} results={results} onResultSelect={this.onResultSelect}/>
 									default:
 										return <ListView {...props} results={results} onResultSelect={this.onResultSelect} />
 								}
@@ -108,6 +111,8 @@ class ResultView extends React.Component {
 								case 'sports':
 									return <div></div>;
 								case 'seminars':
+									return <div></div>;
+								case 'events':
 									return <div></div>;
 								default:
 									return <div>Empty</div>;
