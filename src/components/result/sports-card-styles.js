@@ -1,6 +1,7 @@
 const styles = theme => ({
 	root: {
-		display: 'flex'
+		display: 'flex',
+		flexShrink: 0
 	},
 	paper: {
 		margin: '10px',
