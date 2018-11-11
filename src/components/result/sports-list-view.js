@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 let SportsListView = ({classes, results, onResultSelect}) => (
     <React.Fragment>
         {
-            results && results.matches && results.matches.length?
-            results.matches.map((r, i)=>{
+            results && results.length?
+            results.map((r, i)=>{
                 return (<SportsCard result={r} key={i}>
                 </SportsCard>)
             }):

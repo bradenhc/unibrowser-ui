@@ -159,7 +159,7 @@ const MainSection = ({result})=>(
                 <span>{result && result.date ? result.date:""} {result && result.progress ? result.progress : ""}</span>
             </div>
             {
-                result.date && new Date(result.date) > new Date() ?
+                result.home && !result.home.score ?
                     <React.Fragment>
                         <div className="time">{result && result.time ? result.time : ""}</div>
                     </React.Fragment>:
