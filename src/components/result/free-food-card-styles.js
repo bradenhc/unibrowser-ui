@@ -14,6 +14,7 @@ const styles = theme => ({
         fontFamily: 'sans-serif',
         display: 'flex',
         flexDirection: "column",
+        cursor: "pointer",
         [theme.breakpoints.down('md')]: {
 			width: '80%',
 			alignSelf: 'center',

@@ -7,6 +7,9 @@ import ResultControl from './result/result-control';
 import theme from './theme';
 import styled from 'styled-components';
 import MapContainer from "./cts/map-container";
+import {sportCategories} from '../model/categories';
+
+const beaverOrange = "#DC4405";
 
 const StyledQuickLinks = styled.div`
 	position: relative;
@@ -19,6 +22,48 @@ const QuickLinks = ()=>(
 		<br />
         <a href="/cts">Corvallis Transport Information</a>
 	</StyledQuickLinks>
+)
+
+const StyledSportLinks = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px auto;
+	border: 1px solid ${beaverOrange};
+	border-radius: 10px;
+	padding: 10px;
+	width: 500px;
+	position: relative;
+	font-family: sans-serif;
+	font-size: 16px;
+`
+
+const SportCategory = styled.a`
+	display: flex;
+	color: ${beaverOrange};
+	margin: 0 5px;
+	flex-basis: 30%;
+	justify-content: center;
+`
+
+const LinkBagTitle = styled.span`
+	position: absolute;
+	top: -10px;
+	left: 5px;
+	background: #fff;
+	color: ${beaverOrange};
+`
+
+const SportQuickLinks = ({sportCategories}) => (
+	<StyledSportLinks>
+		<LinkBagTitle>Sports Quick Links</LinkBagTitle>
+		{sportCategories.map((e, key)=>{
+			return (
+				<SportCategory key={key} href={`/search/sports?query=${e.query}`}>
+					{e.name}
+				</SportCategory>
+			)
+		})}
+	</StyledSportLinks>
 )
 
 class App extends React.Component {
@@ -63,6 +108,7 @@ class App extends React.Component {
 									<Logo />
 									<SearchControl {...props} />
 									<QuickLinks />
+									<SportQuickLinks sportCategories = {sportCategories}/>
 								</React.Fragment>
 							)}
 						/>
