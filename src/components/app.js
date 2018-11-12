@@ -9,14 +9,15 @@ import styled from 'styled-components';
 import MapContainer from "./cts/map-container";
 
 const StyledQuickLinks = styled.div`
-	display: flex;
 	position: relative;
-	left: 50%;
+	text-align: center;
 `
 
 const QuickLinks = ()=>(
 	<StyledQuickLinks>
 		<a href="/search/freefood">free food</a>
+		<br />
+        <a href="/cts">Corvallis Transport Information</a>
 	</StyledQuickLinks>
 )
 

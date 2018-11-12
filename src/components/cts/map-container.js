@@ -10,20 +10,25 @@ export class MapContainer extends Component {
             lat_lngs: []
         };
 
-        this.callApi = this.callApi.bind(this);
+        this.callLocationsApi = this.callLocationsApi.bind(this);
     }
 
     async componentDidMount() {
         try {
-            let res = await this.callApi();
-            this.setState({lat_lngs: res});
+            let busStops = await this.callLocationsApi('http://localhost:8080/locations');
+            let busInformation = [];
+            for (let index in busStops) {
+                const latLng = busStops[index];
+                busInformation.push(await this.callLocationsApi(`http://localhost:8080/locations?lat=${parseFloat(latLng['lat'])}&lng=${parseFloat(latLng['lng'])}`));
+            }
+            this.setState({lat_lngs: busStops, bus_info: busInformation});
         } catch (e) {
             console.log(e);
         }
     }
 
-    async callApi() {
-        const response = await fetch('http://localhost:8080/get_locations');
+    async callLocationsApi(url) {
+        const response = await fetch(url);
         const body = await response.json();
 
         if (response.status !== 200) throw Error(body.message);
@@ -42,7 +47,11 @@ export class MapContainer extends Component {
                 }}
                 zoom={15}>
                 {this.state.lat_lngs && this.state.lat_lngs.map((lat_lng, index) => {
-                    return <Marker name={'Dolores park'} position={{lat: lat_lng['lat'], lng: lat_lng['lng']}} />;
+                    return (<Marker
+                                key={index}
+                                title={JSON.stringify(this.state.bus_info[index])}
+                                name={'Dolores park'}
+                                position={{lat: lat_lng['lat'], lng: lat_lng['lng']}} />);
                 })}
             </Map>
         );
