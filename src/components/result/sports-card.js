@@ -15,6 +15,8 @@ const StyledMainSection = styled.div`
     margin-right: 1px;
     flex-direction: row;
     background: #fff;
+    flex-shrink: 0;
+    min-width: 390px;
 
     & div {
         display: flex;
@@ -77,6 +79,7 @@ const StyledMidDetails = styled.div`
     padding: 10px;
     background: #fff;
     flex-direction: column;
+    flex-shrink: 1;
 
     .sport{
         display: flex;
@@ -108,6 +111,7 @@ const StyledVenue = styled.div`
     padding: 10px;
     margin-left: 1px;
     background: #fff;
+    flex-shrink: 1;
 
     .location{
         display: flex;

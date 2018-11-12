@@ -10,6 +10,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
+
+
 let Search = ({ classes, category, categories, onSearch, onChange, onCategoryChange }) => {
 	return (
 		<form className={classes.form} autoComplete="off" onSubmit={event => onSearch(eventUtils.stop(event))}>

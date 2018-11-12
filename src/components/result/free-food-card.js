@@ -50,7 +50,9 @@ const UserSummary = ({result}) => (
 )
 
 let FreeFoodCard = ({classes, result}) => (
-    <div className={classes.root}>
+    <div className={classes.root} onClick={()=>{
+        window.open(result.url, "_blank");
+    }}>
         <Paper className={classes.paper} elevation={1}>
             <UserSummary result = {result}/>
             <Description>
