@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles} from '@material-ui/core/styles';
 import styles from './list-styles';
-import SportsCard from './sports-card';
+import EventsCard from './events-card';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 
-let SportsListView = ({classes, results, onResultSelect}) => (
+let EventsListView = ({classes, results, onResultSelect}) => (
     <React.Fragment>
         {
             results && results.length?
             results.map((r, i)=>{
-                return (<SportsCard result={r} key={i}>
-                </SportsCard>)
+                return (<EventsCard result={r} key={i}>
+                </EventsCard>)
             }):
             <div></div>
         }
     </React.Fragment>
 );
 
-SportsListView.propTypes = {
+EventsListView.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SportsListView);
+export default withStyles(styles)(EventsListView);

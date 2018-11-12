@@ -18,6 +18,10 @@ const categories = [
 	{
 		name: 'Seminars',
 		value: 'seminars'
+	},
+	{
+		name: 'Events',
+		value: 'events'
 	}
 ];
 
