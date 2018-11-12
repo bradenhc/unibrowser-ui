@@ -12,14 +12,15 @@ import {sportCategories} from '../model/categories';
 const beaverOrange = "#DC4405";
 
 const StyledQuickLinks = styled.div`
-	display: flex;
 	position: relative;
-	left: 50%;
+	text-align: center;
 `
 
 const QuickLinks = ()=>(
 	<StyledQuickLinks>
 		<a href="/search/freefood">free food</a>
+		<br />
+        <a href="/cts">Corvallis Transport Information</a>
 	</StyledQuickLinks>
 )
 
