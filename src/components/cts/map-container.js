@@ -7,7 +7,8 @@ export class MapContainer extends Component {
         super(props);
 
         this.state = {
-            lat_lngs: []
+            lat_lngs: [],
+            bus_info: []
         };
 
         this.callLocationsApi = this.callLocationsApi.bind(this);
@@ -42,15 +43,15 @@ export class MapContainer extends Component {
                 google={this.props.google}
                 style={{width: '100%', height: '100%', position: 'relative'}}
                 initialCenter={{
-                    lat: 44.5649418,
-                    lng: -123.2655627
+                    lat: 44.5676048,
+                    lng: -123.2788444
                 }}
                 zoom={15}>
                 {this.state.lat_lngs && this.state.lat_lngs.map((lat_lng, index) => {
                     return (<Marker
                                 key={index}
-                                title={JSON.stringify(this.state.bus_info[index])}
-                                name={'Dolores park'}
+                                title={JSON.stringify(this.state.bus_info[index], null, 2)}
+                                name={JSON.stringify(lat_lng, null, 2)}
                                 position={{lat: lat_lng['lat'], lng: lat_lng['lng']}} />);
                 })}
             </Map>
