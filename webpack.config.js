@@ -18,6 +18,10 @@ const config = {
 				}
 			},
 			{
+				test: /\.css$/,
+        		use: [ 'style-loader', 'css-loader' ]
+			},
+			{
 				test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/,
 				use: [
 					{

@@ -8,6 +8,7 @@ import theme from './theme';
 import styled from 'styled-components';
 import MapContainer from "./cts/map-container";
 import {sportCategories} from '../model/categories';
+import Calendar from './calendar/calendar';
 
 const beaverOrange = "#DC4405";
 
@@ -114,6 +115,7 @@ class App extends React.Component {
 						/>
                         <Route path="/cts" render={props => <MapContainer {...props} />} />
 						<Route path="/search/:category" render={props => <ResultControl {...props} />} />
+						<Route path="/calendar" render={props=> <Calendar />} />
 					</Switch>
 				</Router>
 			</MuiThemeProvider>
