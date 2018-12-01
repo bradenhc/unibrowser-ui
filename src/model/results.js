@@ -477,7 +477,70 @@ let sportsMock = {
 	}
  ]
 
-  export {sportsMock, seminarMock, freeFoodMock, eventsMock}
+ let faqMock = [
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	},
+	{
+		question: "What is the application deadline?",
+		answer: `Applications for fall term admission to Oregon State University are processed beginning in September for the next year (e.g. September 2018 begins process for Fall 2019). Applications must be submitted on or before February 1 for regular admission consideration and consideration for university scholarships.
+		Oregon State accepts applications for all terms (fall, winter, spring, summer). Students who have applied by the Regular Application deadline of February 1, 2019 for Fall 2019 must have all supporting documents required to make their application file complete (official transcripts, official test scores, etc.) to the OSU Office of Admissions by February 15, 2019 to be considered.`
+	}
+ ];
+
+  export {sportsMock, seminarMock, freeFoodMock, eventsMock, faqMock}
 
 
 
