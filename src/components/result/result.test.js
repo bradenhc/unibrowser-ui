@@ -8,7 +8,8 @@ import SportsListView from './sports-list-view';
 import FreeFoodListView from './free-food-list';
 import Card from '@material-ui/core/Card';
 import ProfessorView from './details/professor-view';
-import FaqView from './details/faq-view';
+import FaqListView from './faq-list';
+import Calendar from '../calendar/calendar'
 
 beforeEach(() => {
 	global.fetch = jest.fn().mockImplementation(() => {
@@ -88,4 +89,22 @@ test('Seminars search results view renders', () => {
 		</MemoryRouter>
 	);
 	expect(wrapper.find(SeminarListView)).toHaveLength(1);
+})
+
+test('Faq search results view renders', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/search/faqs/']}>
+			<App />
+		</MemoryRouter>
+	);
+	expect(wrapper.find(FaqListView)).toHaveLength(1);
+})
+
+test('Calendar renders', () => {
+	const wrapper = mount(
+		<MemoryRouter initialEntries={['/Calendar']}>
+			<App />
+		</MemoryRouter>
+	);
+	expect(wrapper.find(Calendar)).toHaveLength(1);
 })

@@ -4,18 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './professor-styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import FaqListView from '../faq-list';
 
-let FaqView = ({ classes, result }) => (
-	<div className={classes.root}>
-		<Paper className={classes.paper} elevation={1}>
-			<Typography variant='h2'>{result.heading}</Typography>
-			<Typography>{result.content}</Typography>
-		</Paper>
-	</div>
-);
-
-FaqView.propTypes = {
-	classes: PropTypes.object.isRequired
-};
+let FaqView = ({results}) => (
+    <FaqListView results={results}/>
+)
 
 export default withStyles(styles)(FaqView);
