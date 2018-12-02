@@ -24,7 +24,7 @@ export default class Calendar extends Component {
     }
 
     getData({category, query}) {
-        let resp = fetch(`http://localhost:8081/api/${category}?query=${query}`);
+        let resp = fetch(`http://localhost:8080/api/${category}?query=${query}`);
         return resp
     }
     transformDataForEvents(tempEvents){
