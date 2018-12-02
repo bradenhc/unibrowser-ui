@@ -9,7 +9,7 @@ class SearchControl extends React.Component {
 
 		this.state = {
 			query: '',
-			category: 'all'
+			category: categories[0].value
 		};
 
 		this.onSearch = this.onSearch.bind(this);
