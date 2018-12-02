@@ -63,7 +63,7 @@ class SportQuickLinks extends React.Component{
 
 	async getSportsInfo(){
 		try{
-			let sportsData = await fetch(`http://localhost:8081/api/sports?query=-1`)
+			let sportsData = await fetch(`http://localhost:8080/api/sports?query=-1`)
 			let sportsInfo = await sportsData.json()
 			// sports_name_list sports_id_list
 			let sports = sportsInfo[0] ? sportsInfo[0].sports_name_list.map((k, i)=>{
