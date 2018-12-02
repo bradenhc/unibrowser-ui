@@ -14,6 +14,10 @@ const categories = [
 	{
 		name: 'Events',
 		value: 'events'
+	},
+	{
+		name: "Sports",
+		value: "sports"
 	}
 ];
 
@@ -102,14 +106,18 @@ export const sportCategories = [
 
 export const calenderCategories = [
 	{
-		name: 'freefood',
+		name: 'Faq',
 		value: 'faqs'
+	},
+	{
+		name: 'Freefood',
+		value: 'freefood'
 	},
 	{
 		name: 'Events',
 		value: 'events'
 	},
-	... sportCategories
+	//... sportCategories
 ]
 
 export default categories;

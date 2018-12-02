@@ -11,7 +11,7 @@ class ResultControl extends React.Component {
 			query: search.query,
 			category: this.props.match.params.category,
 			results: [],
-			selectedResult: null
+			selectedResult: null,
 		};
 
 		this.onSearchSubmit = this.onSearchSubmit.bind(this);

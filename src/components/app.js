@@ -54,27 +54,56 @@ const LinkBagTitle = styled.span`
 	color: ${beaverOrange};
 `
 
-const SportQuickLinks = ({sportCategories}) => (
-	<StyledSportLinks>
-		<LinkBagTitle>Sports Quick Links</LinkBagTitle>
-		{sportCategories.map((e, key)=>{
-			return (
-				<SportCategory key={key} href={`/search/sports?query=${e.query}`}>
-					{e.name}
-				</SportCategory>
-			)
-		})}
-	</StyledSportLinks>
-)
+class SportQuickLinks extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {}
+		this.state.sportsInfo = []
+	}
+
+	async getSportsInfo(){
+		try{
+			let sportsData = await fetch(`http://localhost:8081/api/sports?query=-1`)
+			let sportsInfo = await sportsData.json()
+			// sports_name_list sports_id_list
+			let sports = sportsInfo[0].sports_name_list.map((k, i)=>{
+				return {name: k, query: sportsInfo[0].sports_id_list[i]}
+			})
+			this.setState({sportsInfo: sports})
+		} catch(e){
+			console.log(e);
+		}
+	}
+
+	async componentDidMount(){
+		await this.getSportsInfo()
+	}
+
+	render(){
+		return(
+			<StyledSportLinks>
+				<LinkBagTitle>Sports Quick Links</LinkBagTitle>
+				{this.state.sportsInfo.map((e, key)=>{
+					return (
+						<SportCategory key={key} href={`/search/sports?query=${e.query}`}>
+							{e.name}
+						</SportCategory>
+					)
+				})}
+			</StyledSportLinks>
+		)
+	}
+
+}
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			results: ''
+			results: '',
+			sportsInfo: [{sports_name_list:[], sports_id_list:[]}]
 		};
-
 		this.callApi = this.callApi.bind(this);
 	}
 
@@ -87,13 +116,17 @@ class App extends React.Component {
 		}
 	}
 
+
+
 	async callApi() {
-		const response = await fetch('http://localhost:8081/home');
-		const body = await response.json();
-
+		try{
+			const response = await fetch('http://localhost:8081/home');
+			const body = await response.json();
+			return body;
+		} catch(e){
+			console.log(e);
+		}
 		if (response.status !== 200) throw Error(body.message);
-
-		return body;
 	}
 
 	render() {
@@ -109,7 +142,7 @@ class App extends React.Component {
 									<Logo />
 									<SearchControl {...props} />
 									<QuickLinks />
-									<SportQuickLinks sportCategories = {sportCategories}/>
+									<SportQuickLinks />
 								</React.Fragment>
 							)}
 						/>

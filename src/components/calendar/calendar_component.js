@@ -8,12 +8,15 @@ const localizer = BigCalendar.momentLocalizer(moment)
 const StyledCalendar  = styled.div`
   height: 100%;
 `
-const start  = new Date(new Date().getTime()+1000*60*60*24);
+//{start: start, end: new Date(start.getTime()+1000*60*60*3), title: "Test Event"}]
+//const start  = new Date(new Date().getTime()+1000*60*60*24);
 const EventCalendar = props => (
   <StyledCalendar>
     <BigCalendar
       localizer={localizer}
-      events={[{start: start, end: new Date(start.getTime()+1000*60*60*3), title: "Test Event"}]}
+      events={props.events.map((e, k)=>{
+        return {...e, end: new Date(e.start.getTime()+1000*60*60*3)}
+      })}
       startAccessor="start"
       endAccessor="end"
     />

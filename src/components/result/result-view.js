@@ -94,6 +94,7 @@ class ResultView extends React.Component {
 									case "events":
 										return <EventsView {...props} results={results} onResultSelect={this.onResultSelect}/>
 									case "faqs":
+										debugger;
 										return <FaqView {...props} results={results} onResultSelect={this.onResultSelect}/>
 									default:
 										return <ListView {...props} results={results} onResultSelect={this.onResultSelect} />
