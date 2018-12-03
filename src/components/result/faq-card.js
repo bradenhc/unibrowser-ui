@@ -30,7 +30,7 @@ const Answer = styled.div`
 let FaqCard = ({classes, result}) => (
     <StyledFaqCard>
         <Question>
-            <span>{result.question}</span>
+            <span>{result.title}</span>
         </Question>
         <Answer>
             <span>{result.answer}</span>
