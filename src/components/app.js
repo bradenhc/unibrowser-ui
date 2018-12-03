@@ -120,7 +120,7 @@ class App extends React.Component {
 
 	async callApi() {
 		try{
-			const response = await fetch('http://localhost:8081/home');
+			const response = await fetch('http://localhost:8080/home');
 			const body = await response.json();
 			return body;
 		} catch(e){
